@@ -23,6 +23,26 @@ func (*server) Calculator(ctx context.Context, req *calculatorpb.CalculatorReque
 	return res, nil
 }
 
+func (*server) PrimeNumberDecomposition(req *calculatorpb.PrimeNumberDecompositionRequest, stream calculatorpb.CalculatorService_PrimeNumberDecompositionServer) error {
+	fmt.Printf("Prime number Decomposition was invoked with %v \n", req)
+
+	number := req.GetNumber()
+	divisor := int64(2)
+
+	for number > 1 {
+		if number%divisor == 0 {
+			stream.Send(&calculatorpb.PrimeNumberDecompositionResponse{
+				PrimeFactor: divisor,
+			})
+			number = number / divisor
+		} else {
+			divisor++
+			fmt.Printf("Divisor has increased to %v", divisor)
+		}
+	}
+	return nil
+}
+
 func main() {
 	fmt.Println("Hello Server")
 
