@@ -35,7 +35,7 @@ func (m *Calculator) Reset()         { *m = Calculator{} }
 func (m *Calculator) String() string { return proto.CompactTextString(m) }
 func (*Calculator) ProtoMessage()    {}
 func (*Calculator) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calculator_9b3c52fd322829da, []int{0}
+	return fileDescriptor_calculator_70d856ef95cb183b, []int{0}
 }
 func (m *Calculator) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Calculator.Unmarshal(m, b)
@@ -80,7 +80,7 @@ func (m *CalculatorRequest) Reset()         { *m = CalculatorRequest{} }
 func (m *CalculatorRequest) String() string { return proto.CompactTextString(m) }
 func (*CalculatorRequest) ProtoMessage()    {}
 func (*CalculatorRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calculator_9b3c52fd322829da, []int{1}
+	return fileDescriptor_calculator_70d856ef95cb183b, []int{1}
 }
 func (m *CalculatorRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CalculatorRequest.Unmarshal(m, b)
@@ -118,7 +118,7 @@ func (m *CalculatorResponse) Reset()         { *m = CalculatorResponse{} }
 func (m *CalculatorResponse) String() string { return proto.CompactTextString(m) }
 func (*CalculatorResponse) ProtoMessage()    {}
 func (*CalculatorResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calculator_9b3c52fd322829da, []int{2}
+	return fileDescriptor_calculator_70d856ef95cb183b, []int{2}
 }
 func (m *CalculatorResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CalculatorResponse.Unmarshal(m, b)
@@ -145,10 +145,88 @@ func (m *CalculatorResponse) GetResult() int64 {
 	return 0
 }
 
+type PrimeNumberDecompositionRequest struct {
+	Number               int64    `protobuf:"varint,1,opt,name=number,proto3" json:"number,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *PrimeNumberDecompositionRequest) Reset()         { *m = PrimeNumberDecompositionRequest{} }
+func (m *PrimeNumberDecompositionRequest) String() string { return proto.CompactTextString(m) }
+func (*PrimeNumberDecompositionRequest) ProtoMessage()    {}
+func (*PrimeNumberDecompositionRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_calculator_70d856ef95cb183b, []int{3}
+}
+func (m *PrimeNumberDecompositionRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PrimeNumberDecompositionRequest.Unmarshal(m, b)
+}
+func (m *PrimeNumberDecompositionRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PrimeNumberDecompositionRequest.Marshal(b, m, deterministic)
+}
+func (dst *PrimeNumberDecompositionRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PrimeNumberDecompositionRequest.Merge(dst, src)
+}
+func (m *PrimeNumberDecompositionRequest) XXX_Size() int {
+	return xxx_messageInfo_PrimeNumberDecompositionRequest.Size(m)
+}
+func (m *PrimeNumberDecompositionRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_PrimeNumberDecompositionRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PrimeNumberDecompositionRequest proto.InternalMessageInfo
+
+func (m *PrimeNumberDecompositionRequest) GetNumber() int64 {
+	if m != nil {
+		return m.Number
+	}
+	return 0
+}
+
+type PrimeNumberDecompositionResponse struct {
+	PrimeFactor          int64    `protobuf:"varint,1,opt,name=prime_factor,json=primeFactor,proto3" json:"prime_factor,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *PrimeNumberDecompositionResponse) Reset()         { *m = PrimeNumberDecompositionResponse{} }
+func (m *PrimeNumberDecompositionResponse) String() string { return proto.CompactTextString(m) }
+func (*PrimeNumberDecompositionResponse) ProtoMessage()    {}
+func (*PrimeNumberDecompositionResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_calculator_70d856ef95cb183b, []int{4}
+}
+func (m *PrimeNumberDecompositionResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PrimeNumberDecompositionResponse.Unmarshal(m, b)
+}
+func (m *PrimeNumberDecompositionResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PrimeNumberDecompositionResponse.Marshal(b, m, deterministic)
+}
+func (dst *PrimeNumberDecompositionResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PrimeNumberDecompositionResponse.Merge(dst, src)
+}
+func (m *PrimeNumberDecompositionResponse) XXX_Size() int {
+	return xxx_messageInfo_PrimeNumberDecompositionResponse.Size(m)
+}
+func (m *PrimeNumberDecompositionResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_PrimeNumberDecompositionResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PrimeNumberDecompositionResponse proto.InternalMessageInfo
+
+func (m *PrimeNumberDecompositionResponse) GetPrimeFactor() int64 {
+	if m != nil {
+		return m.PrimeFactor
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterType((*Calculator)(nil), "calculator.Calculator")
 	proto.RegisterType((*CalculatorRequest)(nil), "calculator.CalculatorRequest")
 	proto.RegisterType((*CalculatorResponse)(nil), "calculator.CalculatorResponse")
+	proto.RegisterType((*PrimeNumberDecompositionRequest)(nil), "calculator.PrimeNumberDecompositionRequest")
+	proto.RegisterType((*PrimeNumberDecompositionResponse)(nil), "calculator.PrimeNumberDecompositionResponse")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -165,6 +243,7 @@ const _ = grpc.SupportPackageIsVersion4
 type CalculatorServiceClient interface {
 	// Unary
 	Calculator(ctx context.Context, in *CalculatorRequest, opts ...grpc.CallOption) (*CalculatorResponse, error)
+	PrimeNumberDecomposition(ctx context.Context, in *PrimeNumberDecompositionRequest, opts ...grpc.CallOption) (*PrimeNumberDecompositionResponse, error)
 }
 
 type calculatorServiceClient struct {
@@ -184,10 +263,20 @@ func (c *calculatorServiceClient) Calculator(ctx context.Context, in *Calculator
 	return out, nil
 }
 
+func (c *calculatorServiceClient) PrimeNumberDecomposition(ctx context.Context, in *PrimeNumberDecompositionRequest, opts ...grpc.CallOption) (*PrimeNumberDecompositionResponse, error) {
+	out := new(PrimeNumberDecompositionResponse)
+	err := c.cc.Invoke(ctx, "/calculator.CalculatorService/PrimeNumberDecomposition", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CalculatorServiceServer is the server API for CalculatorService service.
 type CalculatorServiceServer interface {
 	// Unary
 	Calculator(context.Context, *CalculatorRequest) (*CalculatorResponse, error)
+	PrimeNumberDecomposition(context.Context, *PrimeNumberDecompositionRequest) (*PrimeNumberDecompositionResponse, error)
 }
 
 func RegisterCalculatorServiceServer(s *grpc.Server, srv CalculatorServiceServer) {
@@ -212,6 +301,24 @@ func _CalculatorService_Calculator_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CalculatorService_PrimeNumberDecomposition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PrimeNumberDecompositionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CalculatorServiceServer).PrimeNumberDecomposition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/calculator.CalculatorService/PrimeNumberDecomposition",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CalculatorServiceServer).PrimeNumberDecomposition(ctx, req.(*PrimeNumberDecompositionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _CalculatorService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "calculator.CalculatorService",
 	HandlerType: (*CalculatorServiceServer)(nil),
@@ -220,28 +327,38 @@ var _CalculatorService_serviceDesc = grpc.ServiceDesc{
 			MethodName: "Calculator",
 			Handler:    _CalculatorService_Calculator_Handler,
 		},
+		{
+			MethodName: "PrimeNumberDecomposition",
+			Handler:    _CalculatorService_PrimeNumberDecomposition_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "calculator/calculatorpb/calculator.proto",
 }
 
 func init() {
-	proto.RegisterFile("calculator/calculatorpb/calculator.proto", fileDescriptor_calculator_9b3c52fd322829da)
+	proto.RegisterFile("calculator/calculatorpb/calculator.proto", fileDescriptor_calculator_70d856ef95cb183b)
 }
 
-var fileDescriptor_calculator_9b3c52fd322829da = []byte{
-	// 205 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xd2, 0x48, 0x4e, 0xcc, 0x49,
-	0x2e, 0xcd, 0x49, 0x2c, 0xc9, 0x2f, 0xd2, 0x47, 0x30, 0x0b, 0x92, 0x90, 0x38, 0x7a, 0x05, 0x45,
-	0xf9, 0x25, 0xf9, 0x42, 0x5c, 0x08, 0x11, 0xa5, 0x00, 0x2e, 0x2e, 0x67, 0x38, 0x4f, 0x48, 0x9e,
-	0x8b, 0x3b, 0x2d, 0xb3, 0xa8, 0xb8, 0x24, 0xbe, 0x2c, 0x31, 0xa7, 0x34, 0x55, 0x82, 0x51, 0x81,
-	0x51, 0x83, 0x39, 0x88, 0x0b, 0x2c, 0x14, 0x06, 0x12, 0x11, 0x52, 0xe4, 0xe2, 0x29, 0x4e, 0x4d,
-	0xce, 0xcf, 0x4b, 0x81, 0xaa, 0x60, 0x02, 0xab, 0xe0, 0x86, 0x88, 0x81, 0x95, 0x28, 0x79, 0x73,
-	0x09, 0x22, 0x4c, 0x0c, 0x4a, 0x2d, 0x2c, 0x4d, 0x2d, 0x2e, 0x11, 0x32, 0xe3, 0x42, 0xb2, 0x14,
-	0x6c, 0x2e, 0xb7, 0x91, 0x98, 0x1e, 0x92, 0xcb, 0x90, 0xb4, 0x20, 0x3b, 0x4f, 0x87, 0x4b, 0x08,
-	0xd9, 0xb0, 0xe2, 0x82, 0xfc, 0xbc, 0xe2, 0x54, 0x21, 0x31, 0x2e, 0xb6, 0xa2, 0xd4, 0xe2, 0xd2,
-	0x9c, 0x12, 0xa8, 0x0b, 0xa1, 0x3c, 0xa3, 0x24, 0x64, 0xab, 0x83, 0x53, 0x8b, 0xca, 0x32, 0x93,
-	0x53, 0x85, 0x7c, 0x51, 0x7c, 0x28, 0x8b, 0xc3, 0x52, 0x88, 0x3b, 0xa5, 0xe4, 0x70, 0x49, 0x43,
-	0x6c, 0x56, 0x62, 0x70, 0xe2, 0x8b, 0xe2, 0x41, 0x0e, 0xdd, 0x24, 0x36, 0x70, 0x98, 0x1a, 0x03,
-	0x02, 0x00, 0x00, 0xff, 0xff, 0x38, 0x6b, 0xdc, 0x67, 0x7f, 0x01, 0x00, 0x00,
+var fileDescriptor_calculator_70d856ef95cb183b = []byte{
+	// 289 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x52, 0x4d, 0x4b, 0xc3, 0x40,
+	0x10, 0x35, 0x16, 0x72, 0x98, 0x04, 0xc1, 0x3d, 0x84, 0x52, 0xd0, 0xb6, 0x7b, 0x2a, 0x58, 0x2a,
+	0x54, 0x10, 0xbc, 0xfa, 0x75, 0x11, 0xa5, 0x44, 0xf0, 0xe0, 0xa5, 0x24, 0xeb, 0x14, 0x16, 0x92,
+	0xec, 0xba, 0x1f, 0xf5, 0xc7, 0xfa, 0x67, 0x24, 0x9b, 0xc4, 0xac, 0x87, 0x60, 0x6f, 0xfb, 0xde,
+	0xbe, 0x37, 0xf3, 0x66, 0x18, 0x58, 0xb0, 0xac, 0x60, 0xb6, 0xc8, 0x8c, 0x50, 0x97, 0xfd, 0x53,
+	0xe6, 0x1e, 0x58, 0x49, 0x25, 0x8c, 0x20, 0xd0, 0x33, 0x74, 0x03, 0x70, 0xf7, 0x8b, 0xc8, 0x14,
+	0xa2, 0x1d, 0x57, 0xda, 0x6c, 0xf7, 0x59, 0x61, 0x71, 0x1c, 0xcc, 0x82, 0xc5, 0x28, 0x05, 0x47,
+	0xbd, 0xd5, 0x0c, 0x99, 0x43, 0xac, 0x91, 0x89, 0xea, 0xa3, 0x55, 0x1c, 0x3b, 0x45, 0xd4, 0x70,
+	0x4e, 0x42, 0x9f, 0xe0, 0xb4, 0xaf, 0x98, 0xe2, 0xa7, 0x45, 0x6d, 0xc8, 0x35, 0x78, 0x4d, 0x5d,
+	0xdd, 0x68, 0x9d, 0xac, 0xbc, 0x64, 0x9e, 0xc5, 0x8f, 0xb7, 0x04, 0xe2, 0x17, 0xd3, 0x52, 0x54,
+	0x1a, 0x49, 0x02, 0xa1, 0x42, 0x6d, 0x0b, 0xd3, 0x26, 0x6c, 0x11, 0xbd, 0x81, 0xe9, 0x46, 0xf1,
+	0x12, 0x5f, 0x6c, 0x99, 0xa3, 0xba, 0x47, 0x26, 0x4a, 0x29, 0x34, 0x37, 0x5c, 0x54, 0x5d, 0x90,
+	0x04, 0xc2, 0xca, 0xfd, 0x76, 0xd6, 0x06, 0xd1, 0x07, 0x98, 0x0d, 0x5b, 0xdb, 0xb6, 0x73, 0x88,
+	0x65, 0xad, 0xd9, 0xee, 0x32, 0xd6, 0x8d, 0x31, 0x4a, 0x23, 0xc7, 0x3d, 0x3a, 0x6a, 0xfd, 0x1d,
+	0xf8, 0xd3, 0xbf, 0xa2, 0xda, 0x73, 0x86, 0xe4, 0xf9, 0xcf, 0x92, 0xcf, 0x06, 0xe6, 0x6e, 0x12,
+	0x4e, 0xce, 0x87, 0xbe, 0x9b, 0x14, 0xf4, 0x88, 0x7c, 0xc1, 0x78, 0x28, 0x2b, 0xb9, 0xf0, 0xdd,
+	0xff, 0x2c, 0x63, 0xb2, 0x3c, 0x4c, 0xdc, 0x35, 0xbe, 0x3d, 0x79, 0x8f, 0xfd, 0xcb, 0xca, 0x43,
+	0x77, 0x4f, 0x57, 0x3f, 0x01, 0x00, 0x00, 0xff, 0xff, 0xb3, 0xc2, 0x04, 0xa0, 0x7b, 0x02, 0x00,
+	0x00,
 }
