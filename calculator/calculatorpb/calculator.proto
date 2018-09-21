@@ -28,5 +28,5 @@ service CalculatorService {
     // Unary
     rpc Calculator(CalculatorRequest) returns (CalculatorResponse) {}
 
-    rpc PrimeNumberDecomposition(PrimeNumberDecompositionRequest) returns (PrimeNumberDecompositionResponse) {}
+    rpc PrimeNumberDecomposition(PrimeNumberDecompositionRequest) returns (stream PrimeNumberDecompositionResponse) {}
 }
