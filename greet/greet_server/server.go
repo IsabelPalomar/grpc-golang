@@ -57,7 +57,7 @@ func (*server) LongGreet(stream greetpb.GreetService_LongGreetServer) error {
 		}
 
 		firstName := req.GetGreeting().GetFirstName()
-		result += "Hello" + firstName + "!"
+		result += "Hello " + firstName + "! "
 	}
 }
 
