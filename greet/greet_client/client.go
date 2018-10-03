@@ -6,6 +6,7 @@ import (
 	"io"
 	"log"
 	"time"
+
 	"github.com/grpc-golang/greet/greetpb"
 
 	"google.golang.org/grpc"
@@ -22,10 +23,11 @@ func main() {
 	defer cc.Close()
 
 	c := greetpb.NewGreetServiceClient(cc)
-	
+
 	// doUnary(c)
-	//doServerStreaming(c)
-	doClientStreaming(c)
+	// doServerStreaming(c)
+	// doClientStreaming(c)
+	doBiDiStreaming(c)
 
 }
 
@@ -74,31 +76,31 @@ func doServerStreaming(c greetpb.GreetServiceClient) {
 
 }
 
-func doClientStreaming(c greetpb.GreetServiceClient){
+func doClientStreaming(c greetpb.GreetServiceClient) {
 	fmt.Println("Starting to do a Client Streaming RPC...")
 
 	request := []*greetpb.LongGreetRequest{
-		&greetpb.LongGreetRequest {
+		&greetpb.LongGreetRequest{
 			Greeting: &greetpb.Greeting{
 				FirstName: "Isabel",
 			},
 		},
-		&greetpb.LongGreetRequest {
+		&greetpb.LongGreetRequest{
 			Greeting: &greetpb.Greeting{
 				FirstName: "Paty",
 			},
 		},
-		&greetpb.LongGreetRequest {
+		&greetpb.LongGreetRequest{
 			Greeting: &greetpb.Greeting{
 				FirstName: "Jorge",
 			},
 		},
-		&greetpb.LongGreetRequest {
+		&greetpb.LongGreetRequest{
 			Greeting: &greetpb.Greeting{
 				FirstName: "Bau",
 			},
 		},
-		&greetpb.LongGreetRequest {
+		&greetpb.LongGreetRequest{
 			Greeting: &greetpb.Greeting{
 				FirstName: "Jorge PG",
 			},
@@ -124,4 +126,74 @@ func doClientStreaming(c greetpb.GreetServiceClient){
 
 	fmt.Printf("Long greet response %v \n", res)
 
+}
+
+func doBiDiStreaming(c greetpb.GreetServiceClient) {
+	fmt.Println("Starting to do a BiDi Streaming RPC...")
+
+	// We create an stream by invoking the client
+	stream, err := c.GreetEveryOne(context.Background())
+	if err != nil {
+		log.Fatalf("Error while creating stream: %v", err)
+		return
+	}
+
+	requests := []*greetpb.GreetEveryOneRequest{
+		&greetpb.GreetEveryOneRequest{
+			Greeting: &greetpb.Greeting{
+				FirstName: "Luis",
+			},
+		},
+		&greetpb.GreetEveryOneRequest{
+			Greeting: &greetpb.Greeting{
+				FirstName: "Paul",
+			},
+		},
+		&greetpb.GreetEveryOneRequest{
+			Greeting: &greetpb.Greeting{
+				FirstName: "Vinicious",
+			},
+		},
+		&greetpb.GreetEveryOneRequest{
+			Greeting: &greetpb.Greeting{
+				FirstName: "Isabel",
+			},
+		},
+		&greetpb.GreetEveryOneRequest{
+			Greeting: &greetpb.Greeting{
+				FirstName: "Joe",
+			},
+		},
+	}
+
+	waitc := make(chan struct{})
+	// We send a bunch of messages to the client (go routine)
+	go func() {
+		// function to send a bunch of messages
+		for _, req := range requests {
+			fmt.Printf("Sending message: %v \n", req)
+			stream.Send(req)
+			time.Sleep(1000 * time.Millisecond)
+		}
+		stream.CloseSend()
+	}()
+
+	// We receive a bunch of messages from the client (go routine)
+	go func() {
+		for {
+			res, err := stream.Recv()
+			if err == io.EOF {
+				break
+			}
+			if err != nil {
+				log.Fatalf("Error while receiving: %v", err)
+				break
+			}
+			fmt.Printf("Received: %v \n", res.GetResult())
+		}
+		close(waitc)
+	}()
+
+	// Block until everything is done
+	<-waitc
 }

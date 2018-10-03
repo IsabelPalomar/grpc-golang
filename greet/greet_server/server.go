@@ -74,7 +74,7 @@ func (*server) GreetEveryOne(stream greetpb.GreetService_GreetEveryOneServer) er
 			return err
 		}
 		firstName := req.GetGreeting().GetFirstName()
-		result := "Hello" + firstName + "! "
+		result := "Hello " + firstName + "! "
 
 		sendErr := stream.Send(&greetpb.GreetEveryOneResponse{
 			Result: result,
