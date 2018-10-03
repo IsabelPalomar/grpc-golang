@@ -35,7 +35,7 @@ func (m *Calculator) Reset()         { *m = Calculator{} }
 func (m *Calculator) String() string { return proto.CompactTextString(m) }
 func (*Calculator) ProtoMessage()    {}
 func (*Calculator) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calculator_afe321ee8052d165, []int{0}
+	return fileDescriptor_calculator_6a482ea41e5c12e9, []int{0}
 }
 func (m *Calculator) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Calculator.Unmarshal(m, b)
@@ -80,7 +80,7 @@ func (m *CalculatorRequest) Reset()         { *m = CalculatorRequest{} }
 func (m *CalculatorRequest) String() string { return proto.CompactTextString(m) }
 func (*CalculatorRequest) ProtoMessage()    {}
 func (*CalculatorRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calculator_afe321ee8052d165, []int{1}
+	return fileDescriptor_calculator_6a482ea41e5c12e9, []int{1}
 }
 func (m *CalculatorRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CalculatorRequest.Unmarshal(m, b)
@@ -118,7 +118,7 @@ func (m *CalculatorResponse) Reset()         { *m = CalculatorResponse{} }
 func (m *CalculatorResponse) String() string { return proto.CompactTextString(m) }
 func (*CalculatorResponse) ProtoMessage()    {}
 func (*CalculatorResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calculator_afe321ee8052d165, []int{2}
+	return fileDescriptor_calculator_6a482ea41e5c12e9, []int{2}
 }
 func (m *CalculatorResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CalculatorResponse.Unmarshal(m, b)
@@ -156,7 +156,7 @@ func (m *PrimeNumberDecompositionRequest) Reset()         { *m = PrimeNumberDeco
 func (m *PrimeNumberDecompositionRequest) String() string { return proto.CompactTextString(m) }
 func (*PrimeNumberDecompositionRequest) ProtoMessage()    {}
 func (*PrimeNumberDecompositionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calculator_afe321ee8052d165, []int{3}
+	return fileDescriptor_calculator_6a482ea41e5c12e9, []int{3}
 }
 func (m *PrimeNumberDecompositionRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PrimeNumberDecompositionRequest.Unmarshal(m, b)
@@ -194,7 +194,7 @@ func (m *PrimeNumberDecompositionResponse) Reset()         { *m = PrimeNumberDec
 func (m *PrimeNumberDecompositionResponse) String() string { return proto.CompactTextString(m) }
 func (*PrimeNumberDecompositionResponse) ProtoMessage()    {}
 func (*PrimeNumberDecompositionResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calculator_afe321ee8052d165, []int{4}
+	return fileDescriptor_calculator_6a482ea41e5c12e9, []int{4}
 }
 func (m *PrimeNumberDecompositionResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PrimeNumberDecompositionResponse.Unmarshal(m, b)
@@ -232,7 +232,7 @@ func (m *ComputeAverageRequest) Reset()         { *m = ComputeAverageRequest{} }
 func (m *ComputeAverageRequest) String() string { return proto.CompactTextString(m) }
 func (*ComputeAverageRequest) ProtoMessage()    {}
 func (*ComputeAverageRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calculator_afe321ee8052d165, []int{5}
+	return fileDescriptor_calculator_6a482ea41e5c12e9, []int{5}
 }
 func (m *ComputeAverageRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ComputeAverageRequest.Unmarshal(m, b)
@@ -270,7 +270,7 @@ func (m *ComputeAverageResponse) Reset()         { *m = ComputeAverageResponse{}
 func (m *ComputeAverageResponse) String() string { return proto.CompactTextString(m) }
 func (*ComputeAverageResponse) ProtoMessage()    {}
 func (*ComputeAverageResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calculator_afe321ee8052d165, []int{6}
+	return fileDescriptor_calculator_6a482ea41e5c12e9, []int{6}
 }
 func (m *ComputeAverageResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ComputeAverageResponse.Unmarshal(m, b)
@@ -297,6 +297,82 @@ func (m *ComputeAverageResponse) GetAverage() float64 {
 	return 0
 }
 
+type FindMaximumRequest struct {
+	Number               int32    `protobuf:"varint,1,opt,name=number,proto3" json:"number,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *FindMaximumRequest) Reset()         { *m = FindMaximumRequest{} }
+func (m *FindMaximumRequest) String() string { return proto.CompactTextString(m) }
+func (*FindMaximumRequest) ProtoMessage()    {}
+func (*FindMaximumRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_calculator_6a482ea41e5c12e9, []int{7}
+}
+func (m *FindMaximumRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_FindMaximumRequest.Unmarshal(m, b)
+}
+func (m *FindMaximumRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_FindMaximumRequest.Marshal(b, m, deterministic)
+}
+func (dst *FindMaximumRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_FindMaximumRequest.Merge(dst, src)
+}
+func (m *FindMaximumRequest) XXX_Size() int {
+	return xxx_messageInfo_FindMaximumRequest.Size(m)
+}
+func (m *FindMaximumRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_FindMaximumRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_FindMaximumRequest proto.InternalMessageInfo
+
+func (m *FindMaximumRequest) GetNumber() int32 {
+	if m != nil {
+		return m.Number
+	}
+	return 0
+}
+
+type FindMaximumResponse struct {
+	Maximum              int32    `protobuf:"varint,1,opt,name=maximum,proto3" json:"maximum,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *FindMaximumResponse) Reset()         { *m = FindMaximumResponse{} }
+func (m *FindMaximumResponse) String() string { return proto.CompactTextString(m) }
+func (*FindMaximumResponse) ProtoMessage()    {}
+func (*FindMaximumResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_calculator_6a482ea41e5c12e9, []int{8}
+}
+func (m *FindMaximumResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_FindMaximumResponse.Unmarshal(m, b)
+}
+func (m *FindMaximumResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_FindMaximumResponse.Marshal(b, m, deterministic)
+}
+func (dst *FindMaximumResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_FindMaximumResponse.Merge(dst, src)
+}
+func (m *FindMaximumResponse) XXX_Size() int {
+	return xxx_messageInfo_FindMaximumResponse.Size(m)
+}
+func (m *FindMaximumResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_FindMaximumResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_FindMaximumResponse proto.InternalMessageInfo
+
+func (m *FindMaximumResponse) GetMaximum() int32 {
+	if m != nil {
+		return m.Maximum
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterType((*Calculator)(nil), "calculator.Calculator")
 	proto.RegisterType((*CalculatorRequest)(nil), "calculator.CalculatorRequest")
@@ -305,6 +381,8 @@ func init() {
 	proto.RegisterType((*PrimeNumberDecompositionResponse)(nil), "calculator.PrimeNumberDecompositionResponse")
 	proto.RegisterType((*ComputeAverageRequest)(nil), "calculator.ComputeAverageRequest")
 	proto.RegisterType((*ComputeAverageResponse)(nil), "calculator.ComputeAverageResponse")
+	proto.RegisterType((*FindMaximumRequest)(nil), "calculator.FindMaximumRequest")
+	proto.RegisterType((*FindMaximumResponse)(nil), "calculator.FindMaximumResponse")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -325,6 +403,8 @@ type CalculatorServiceClient interface {
 	PrimeNumberDecomposition(ctx context.Context, in *PrimeNumberDecompositionRequest, opts ...grpc.CallOption) (CalculatorService_PrimeNumberDecompositionClient, error)
 	// Client Streaming
 	ComputeAverage(ctx context.Context, opts ...grpc.CallOption) (CalculatorService_ComputeAverageClient, error)
+	// BiDi Streaming
+	FindMaximum(ctx context.Context, opts ...grpc.CallOption) (CalculatorService_FindMaximumClient, error)
 }
 
 type calculatorServiceClient struct {
@@ -410,6 +490,37 @@ func (x *calculatorServiceComputeAverageClient) CloseAndRecv() (*ComputeAverageR
 	return m, nil
 }
 
+func (c *calculatorServiceClient) FindMaximum(ctx context.Context, opts ...grpc.CallOption) (CalculatorService_FindMaximumClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_CalculatorService_serviceDesc.Streams[2], "/calculator.CalculatorService/FindMaximum", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &calculatorServiceFindMaximumClient{stream}
+	return x, nil
+}
+
+type CalculatorService_FindMaximumClient interface {
+	Send(*FindMaximumRequest) error
+	Recv() (*FindMaximumResponse, error)
+	grpc.ClientStream
+}
+
+type calculatorServiceFindMaximumClient struct {
+	grpc.ClientStream
+}
+
+func (x *calculatorServiceFindMaximumClient) Send(m *FindMaximumRequest) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *calculatorServiceFindMaximumClient) Recv() (*FindMaximumResponse, error) {
+	m := new(FindMaximumResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // CalculatorServiceServer is the server API for CalculatorService service.
 type CalculatorServiceServer interface {
 	// Unary
@@ -418,6 +529,8 @@ type CalculatorServiceServer interface {
 	PrimeNumberDecomposition(*PrimeNumberDecompositionRequest, CalculatorService_PrimeNumberDecompositionServer) error
 	// Client Streaming
 	ComputeAverage(CalculatorService_ComputeAverageServer) error
+	// BiDi Streaming
+	FindMaximum(CalculatorService_FindMaximumServer) error
 }
 
 func RegisterCalculatorServiceServer(s *grpc.Server, srv CalculatorServiceServer) {
@@ -489,6 +602,32 @@ func (x *calculatorServiceComputeAverageServer) Recv() (*ComputeAverageRequest, 
 	return m, nil
 }
 
+func _CalculatorService_FindMaximum_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(CalculatorServiceServer).FindMaximum(&calculatorServiceFindMaximumServer{stream})
+}
+
+type CalculatorService_FindMaximumServer interface {
+	Send(*FindMaximumResponse) error
+	Recv() (*FindMaximumRequest, error)
+	grpc.ServerStream
+}
+
+type calculatorServiceFindMaximumServer struct {
+	grpc.ServerStream
+}
+
+func (x *calculatorServiceFindMaximumServer) Send(m *FindMaximumResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *calculatorServiceFindMaximumServer) Recv() (*FindMaximumRequest, error) {
+	m := new(FindMaximumRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 var _CalculatorService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "calculator.CalculatorService",
 	HandlerType: (*CalculatorServiceServer)(nil),
@@ -509,36 +648,45 @@ var _CalculatorService_serviceDesc = grpc.ServiceDesc{
 			Handler:       _CalculatorService_ComputeAverage_Handler,
 			ClientStreams: true,
 		},
+		{
+			StreamName:    "FindMaximum",
+			Handler:       _CalculatorService_FindMaximum_Handler,
+			ServerStreams: true,
+			ClientStreams: true,
+		},
 	},
 	Metadata: "calculator/calculatorpb/calculator.proto",
 }
 
 func init() {
-	proto.RegisterFile("calculator/calculatorpb/calculator.proto", fileDescriptor_calculator_afe321ee8052d165)
+	proto.RegisterFile("calculator/calculatorpb/calculator.proto", fileDescriptor_calculator_6a482ea41e5c12e9)
 }
 
-var fileDescriptor_calculator_afe321ee8052d165 = []byte{
-	// 346 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x53, 0x4d, 0x4b, 0xc3, 0x40,
-	0x14, 0x34, 0x2d, 0x56, 0x78, 0x29, 0x05, 0x17, 0x0c, 0xa5, 0xa0, 0x6d, 0xf7, 0x54, 0xb0, 0xb4,
-	0x52, 0x41, 0xf0, 0xa8, 0x55, 0x2f, 0xa2, 0x94, 0x08, 0x1e, 0xf4, 0x50, 0xd2, 0xf8, 0x2a, 0x81,
-	0x24, 0x1b, 0xf7, 0xa3, 0xe0, 0x5f, 0xf3, 0xd7, 0x49, 0x37, 0xd9, 0x76, 0x23, 0x8d, 0x7a, 0xcb,
-	0x9b, 0x9d, 0x79, 0x33, 0x99, 0x65, 0x61, 0x10, 0x06, 0x71, 0xa8, 0xe2, 0x40, 0x32, 0x3e, 0xde,
-	0x7e, 0x66, 0x0b, 0x6b, 0x18, 0x65, 0x9c, 0x49, 0x46, 0x60, 0x8b, 0xd0, 0x19, 0xc0, 0x74, 0x33,
-	0x91, 0x2e, 0xb8, 0xcb, 0x88, 0x0b, 0x39, 0x5f, 0x05, 0xb1, 0xc2, 0xb6, 0xd3, 0x73, 0x06, 0x75,
-	0x1f, 0x34, 0xf4, 0xbc, 0x46, 0x48, 0x1f, 0x9a, 0x02, 0x43, 0x96, 0xbe, 0x15, 0x8c, 0x9a, 0x66,
-	0xb8, 0x39, 0xa6, 0x29, 0xf4, 0x1e, 0x0e, 0xb7, 0x1b, 0x7d, 0xfc, 0x50, 0x28, 0x24, 0xb9, 0x00,
-	0xcb, 0x54, 0xef, 0x75, 0x27, 0xde, 0xc8, 0x4a, 0x66, 0x49, 0xec, 0x78, 0x43, 0x20, 0xf6, 0x32,
-	0x91, 0xb1, 0x54, 0x20, 0xf1, 0xa0, 0xc1, 0x51, 0xa8, 0x58, 0x16, 0x09, 0x8b, 0x89, 0x5e, 0x42,
-	0x77, 0xc6, 0xa3, 0x04, 0x1f, 0x55, 0xb2, 0x40, 0x7e, 0x83, 0x21, 0x4b, 0x32, 0x26, 0x22, 0x19,
-	0xb1, 0xd4, 0x04, 0xf1, 0xa0, 0x91, 0xea, 0x53, 0x23, 0xcd, 0x27, 0x7a, 0x0b, 0xbd, 0x6a, 0x69,
-	0x61, 0xdb, 0x87, 0x66, 0xb6, 0xe6, 0xcc, 0x97, 0x41, 0x68, 0x7e, 0xa3, 0xee, 0xbb, 0x1a, 0xbb,
-	0xd3, 0x10, 0x1d, 0xc3, 0xd1, 0x94, 0x25, 0x99, 0x92, 0x78, 0xb5, 0x42, 0x1e, 0xbc, 0xe3, 0x6e,
-	0xdf, 0xfd, 0x8d, 0xef, 0x04, 0xbc, 0x9f, 0x82, 0xc2, 0xad, 0x0d, 0x07, 0x41, 0x0e, 0x69, 0x89,
-	0xe3, 0x9b, 0x71, 0xf2, 0x55, 0xb3, 0x2b, 0x7e, 0x42, 0xbe, 0x8a, 0x42, 0x24, 0x0f, 0xa5, 0x9b,
-	0x3c, 0xae, 0x28, 0x37, 0x8f, 0xd3, 0x39, 0xa9, 0x3a, 0xce, 0xcd, 0xe9, 0x1e, 0xf9, 0x84, 0x76,
-	0x55, 0x21, 0xe4, 0xd4, 0x56, 0xff, 0xd1, 0x78, 0x67, 0xf8, 0x3f, 0xb2, 0x31, 0x3e, 0x73, 0xc8,
-	0x2b, 0xb4, 0xca, 0x9d, 0x90, 0x7e, 0x29, 0xee, 0xae, 0x82, 0x3b, 0xf4, 0x37, 0x8a, 0x59, 0x3e,
-	0x70, 0xae, 0x5b, 0x2f, 0x4d, 0xfb, 0x75, 0x2c, 0x1a, 0xfa, 0x4d, 0x9c, 0x7f, 0x07, 0x00, 0x00,
-	0xff, 0xff, 0x03, 0xe8, 0x70, 0x9e, 0x3f, 0x03, 0x00, 0x00,
+var fileDescriptor_calculator_6a482ea41e5c12e9 = []byte{
+	// 391 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x53, 0x51, 0x4b, 0xc2, 0x50,
+	0x14, 0x6e, 0x49, 0x06, 0x67, 0x22, 0x74, 0xa3, 0x21, 0x83, 0x52, 0xf7, 0x24, 0x24, 0x2a, 0x06,
+	0x41, 0x8f, 0x65, 0xf9, 0x12, 0x86, 0xac, 0xe8, 0xa1, 0x1e, 0x64, 0xce, 0x63, 0x0c, 0xb6, 0xdd,
+	0x75, 0xb7, 0x2b, 0xf5, 0x2f, 0xfa, 0xc9, 0xe1, 0xdd, 0xae, 0xbb, 0x2b, 0x97, 0xbd, 0x79, 0xbe,
+	0xf3, 0x9d, 0xef, 0xfb, 0x3c, 0x67, 0x17, 0x3a, 0xae, 0xe3, 0xbb, 0xdc, 0x77, 0x12, 0xca, 0xfa,
+	0xf9, 0xcf, 0x68, 0xae, 0x14, 0xbd, 0x88, 0xd1, 0x84, 0x12, 0xc8, 0x11, 0x6b, 0x0a, 0x30, 0xda,
+	0x54, 0xa4, 0x09, 0xfa, 0xd2, 0x63, 0x71, 0x32, 0x5b, 0x39, 0x3e, 0xc7, 0x86, 0xd6, 0xd2, 0x3a,
+	0x15, 0x1b, 0x04, 0xf4, 0xbc, 0x46, 0x48, 0x1b, 0x6a, 0x31, 0xba, 0x34, 0x5c, 0x64, 0x8c, 0x7d,
+	0xc1, 0xd0, 0x53, 0x4c, 0x50, 0xac, 0x7b, 0x38, 0xca, 0x15, 0x6d, 0x7c, 0xe7, 0x18, 0x27, 0xe4,
+	0x12, 0x14, 0x53, 0xa1, 0xab, 0x0f, 0x8d, 0x9e, 0x92, 0x4c, 0x19, 0x51, 0xe3, 0x75, 0x81, 0xa8,
+	0x62, 0x71, 0x44, 0xc3, 0x18, 0x89, 0x01, 0x55, 0x86, 0x31, 0xf7, 0x93, 0x2c, 0x61, 0x56, 0x59,
+	0x57, 0xd0, 0x9c, 0x32, 0x2f, 0xc0, 0x07, 0x1e, 0xcc, 0x91, 0xdd, 0xa2, 0x4b, 0x83, 0x88, 0xc6,
+	0x5e, 0xe2, 0xd1, 0x50, 0x06, 0x31, 0xa0, 0x1a, 0x8a, 0xae, 0x1c, 0x4d, 0x2b, 0xeb, 0x0e, 0x5a,
+	0xe5, 0xa3, 0x99, 0x6d, 0x1b, 0x6a, 0xd1, 0x9a, 0x33, 0x5b, 0x3a, 0xae, 0xfc, 0x1b, 0x15, 0x5b,
+	0x17, 0xd8, 0x58, 0x40, 0x56, 0x1f, 0x4e, 0x46, 0x34, 0x88, 0x78, 0x82, 0xd7, 0x2b, 0x64, 0xce,
+	0x1b, 0x6e, 0xf7, 0x3d, 0xd8, 0xf8, 0x0e, 0xc1, 0xf8, 0x39, 0x90, 0xb9, 0x35, 0xe0, 0xd0, 0x49,
+	0x21, 0x31, 0xa2, 0xd9, 0xb2, 0x5c, 0x2f, 0x65, 0xec, 0x85, 0x8b, 0x89, 0xf3, 0xe1, 0x05, 0x3c,
+	0xd8, 0xe5, 0xd0, 0x87, 0xe3, 0x02, 0x3b, 0x97, 0x0f, 0x52, 0x28, 0xe3, 0xcb, 0x72, 0xf8, 0x55,
+	0x51, 0x2f, 0xf8, 0x88, 0x6c, 0xe5, 0xb9, 0x48, 0x26, 0x85, 0x0f, 0xe5, 0xb4, 0xe4, 0x76, 0x69,
+	0x16, 0xf3, 0xac, 0xac, 0x9d, 0x9a, 0x5b, 0x7b, 0xe4, 0x13, 0x1a, 0x65, 0xfb, 0x26, 0xe7, 0xea,
+	0xf4, 0x8e, 0x83, 0x9a, 0xdd, 0xff, 0x91, 0xa5, 0xf1, 0x40, 0x23, 0xaf, 0x50, 0x2f, 0xae, 0x9c,
+	0xb4, 0x0b, 0x71, 0xb7, 0xdd, 0xcf, 0xb4, 0xfe, 0xa2, 0x48, 0xf1, 0x8e, 0x46, 0x9e, 0x40, 0x57,
+	0xb6, 0x4d, 0x0a, 0x8b, 0xf8, 0x7d, 0x34, 0xb3, 0x59, 0xda, 0xcf, 0x35, 0x07, 0xda, 0x4d, 0xfd,
+	0xa5, 0xa6, 0x3e, 0xe9, 0x79, 0x55, 0x3c, 0xe4, 0x8b, 0xef, 0x00, 0x00, 0x00, 0xff, 0xff, 0xe2,
+	0x9f, 0xea, 0xe4, 0xf4, 0x03, 0x00, 0x00,
 }
